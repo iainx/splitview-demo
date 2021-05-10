@@ -37,6 +37,10 @@
     
     NSView *blueView = [self createViewWithColor:NSColor.blueColor identifier:@"blue" frame:NSMakeRect(0, 0, 100, 250)];
     [_splitView addArrangedSubview:blueView];
+    
+    [_splitView setHoldingPriority:499 forSubviewAtIndex:0];
+    [_splitView setHoldingPriority:1 forSubviewAtIndex:1];
+    [_splitView setHoldingPriority:499 forSubviewAtIndex:2];
 }
 
 - (NSView *)createViewWithColor:(NSColor *)color identifier:(NSString *)identifier frame:(NSRect)frame
@@ -66,6 +70,8 @@
     NSSplitView *bottomSplit = [self createBottomSplitView];
     [rightSplit addArrangedSubview:bottomSplit];
     
+    [rightSplit setHoldingPriority:1 forSubviewAtIndex:0];
+    [rightSplit setHoldingPriority:498 forSubviewAtIndex:1];
     return rightSplit;
 }
 
@@ -84,6 +90,8 @@
     
     [bottomSplit addArrangedSubview:orangeView];
     
+    [bottomSplit setHoldingPriority:497 forSubviewAtIndex:0];
+    [bottomSplit setHoldingPriority:497 forSubviewAtIndex:1];
     return bottomSplit;
 }
 
